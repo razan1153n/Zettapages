@@ -1,0 +1,68 @@
+{
+  "name": "AppSetting",
+  "type": "object",
+  "properties": {
+    "singleton": {
+      "type": "string",
+      "default": "app"
+    },
+    "allocation_policy": {
+      "type": "string",
+      "enum": [
+        "equal",
+        "fixed",
+        "proportional"
+      ],
+      "default": "equal"
+    },
+    "default_quota_bytes": {
+      "type": "number"
+    },
+    "min_quota_bytes": {
+      "type": "number"
+    },
+    "max_file_bytes": {
+      "type": "number"
+    },
+    "reserved_bytes": {
+      "type": "number"
+    },
+    "registration_enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "maintenance_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "low_storage_threshold": {
+      "type": "number",
+      "default": 15
+    }
+  },
+  "required": [
+    "singleton"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

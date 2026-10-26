@@ -1,0 +1,82 @@
+{
+  "name": "StorageConnection",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "huggingface"
+      ],
+      "default": "huggingface"
+    },
+    "repo_type": {
+      "type": "string",
+      "enum": [
+        "dataset",
+        "model"
+      ],
+      "default": "dataset"
+    },
+    "repo_id": {
+      "type": "string"
+    },
+    "access_token": {
+      "type": "string"
+    },
+    "capacity_bytes": {
+      "type": "number"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "connected",
+        "error",
+        "disabled"
+      ],
+      "default": "connected"
+    },
+    "last_error": {
+      "type": "string"
+    },
+    "last_checked": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "repo_id"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

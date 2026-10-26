@@ -1,0 +1,79 @@
+{
+  "name": "StoredFile",
+  "type": "object",
+  "properties": {
+    "owner_id": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "number"
+    },
+    "mime_type": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "image",
+        "video",
+        "document",
+        "audio",
+        "archive",
+        "other"
+      ],
+      "default": "other"
+    },
+    "connection_id": {
+      "type": "string"
+    },
+    "storage_key": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "trashed"
+      ],
+      "default": "active"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "default": false
+    },
+    "trashed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checksum": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "size_bytes"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
